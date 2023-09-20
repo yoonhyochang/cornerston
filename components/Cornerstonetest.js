@@ -48,8 +48,8 @@ async function runViewport(
   setPatientState
 ) {
   // Init Cornerstone and related libraries
-  await initCornerstone();
-
+    await initCornerstone();
+    console.log('image', studyInstanceUID, seriesInstanceUID)
   // Get Cornerstone imageIds and fetch metadata into RAM
   const imageDatas = await createImageIdsAndCacheMetaData({
     StudyInstanceUID: studyInstanceUID,
@@ -103,13 +103,6 @@ const Viewport = forwardRef(
   (
     {
       children,
-      studyInstanceUID,
-      seriesInstanceUID,
-      wadoRsRoot,
-      setToolState,
-      setRoiState,
-      setRsImageIdState,
-      setPatientState,
     },
     ref
   ) => {
@@ -117,13 +110,18 @@ const Viewport = forwardRef(
     const [isShowPatientInfo, setIsShowPatientInfo] = useState("Active");
     const [toolGroup, setToolGroup] = useState(null);
     const [viewport, setViewport] = useState(null);
-
+    const studyInstanceUID = '1.400.20.81.610.201712061281'
+    const seriesInstanceUID =
+            "1.3.46.670589.30.1.6.1.1625523293.1512518914734.3";
+    const wadoRsRoot = "http://localhost/orthanc/dicom-web";
     const client = new api.DICOMwebClient({
       url: `http://${HOST_ORTHANC}/orthanc/dicom-web`, // TODO get from env
     });
-
+        const setPatientState = () => { }
+        const setToolState = () => { }
     // set tool state after viewport is initialized
-    useEffect(() => {
+        useEffect(() => {
+     
       if (window !== undefined) {
         runViewport(
           viewer.current,
