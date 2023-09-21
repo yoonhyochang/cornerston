@@ -28,11 +28,9 @@ export default function MyComponent() {
     <div>
       {data &&
         Array.isArray(data) &&
-        data.map((item) => (
-          <div key={item.ID}>
-            <p>Patient Name: {item.PatientName}</p>
-            <p>Study Date: {item.StudyDate}</p>
-            <p>Modality: {item.Modality}</p>
+        data.map((itemId, index) => (
+          <div key={itemId}>
+            <p>{itemId}</p>
           </div>
         ))}
     </div>
