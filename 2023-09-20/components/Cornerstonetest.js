@@ -55,9 +55,11 @@ async function runViewport(
     StudyInstanceUID: studyInstanceUID,
     SeriesInstanceUID: seriesInstanceUID,
     wadoRsRoot: wadoRsRoot,
-    //type: 'VOLUME',
+      //type: 'VOLUME',
+    
   });
-
+    console.log("imageDatas :", imageDatas);
+    
   const { imageIds, instanceInfo } = imageDatas;
   setPatientState(instanceInfo);
   console.log("imageIds", imageIds);
@@ -85,6 +87,7 @@ async function runViewport(
     toolGroup.addViewport(viewportId, renderingEngineId);
   }
   viewport.setStack(imageIds, imageIds.length - 1);
+  
   viewport.render();
 
   // windows resize listener
