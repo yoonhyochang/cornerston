@@ -4,7 +4,10 @@ import axios from "axios";
 const getDICOMData = async () => {
     try {
         const response = await axios.get("/api/studiesProxy");
-      
+        const StudiesArray = response.data;
+        const Studie = StudiesArray[0];
+        
+        console.log("Studie :", Studie); 
     return response.data;
   } catch (error) {
     console.error("Error fetching data from Orthanc:", error);
@@ -12,30 +15,21 @@ const getDICOMData = async () => {
 };
 
 export default function MyComponent() {
-  const [data, setData] = useState([]);
+  const [studie, setStudie] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const dicomData = await getDICOMData();
-      setData(dicomData);
+        setStudie(dicomData[0]);
     };
 
     fetchData();
   }, []);
 
-  console.log("data :", data);
-
   return (
     <div>
-      <h1>Studies</h1>
-
-      {data &&
-        Array.isArray(data) &&
-        data.map((itemId, index) => (
-          <div key={itemId}>
-            <p>{itemId}</p>
-          </div>
-        ))}
+      <h1>Studie Id</h1>
+      <p>{studie}</p>
     </div>
   );
 }
