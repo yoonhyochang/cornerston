@@ -1,4 +1,4 @@
-import ImageQueries from "../components/ImageQuerieshook";
+import ImageQueries from "../components/ImageQueriesHook";
 import ImageQu from "../components/ImageQueries";
 
 export default function View() {
