@@ -1,4 +1,5 @@
-import ImageQueries from "../components/ImageQueries";
+import ImageQueries from "../components/ImageQuerieshook";
+import ImageQu from "../components/ImageQueries";
 
 export default function View() {
   return (
@@ -7,6 +8,7 @@ export default function View() {
 
       {/* InstancesViewer 와 Studie Id 값 불러오기 */}
       <ImageQueries></ImageQueries>
+      <ImageQu></ImageQu>
     </>
   );
 }
