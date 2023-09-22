@@ -1,15 +1,12 @@
-import StudiesViewer from "../components/StudiesViewer";
-import SeriesViewer from "../components/SeriesViewer";
+import ImageQueries from "../components/ImageQueries";
 
-export default function Home() {
+export default function View() {
   return (
     <>
       <h1>메인</h1>
-      {/* 1. Studie 데이터 연습 */}
-      <StudiesViewer></StudiesViewer>
 
-      {/* 2. InstancesViewer Id 값 불러오기*/}
-      <SeriesViewer></SeriesViewer>
+      {/* InstancesViewer 와 Studie Id 값 불러오기 */}
+      <ImageQueries></ImageQueries>
     </>
   );
 }
